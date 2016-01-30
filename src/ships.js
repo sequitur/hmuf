@@ -22,8 +22,8 @@ class Ship {
 
   regen() {
     const model = {};
-    this.name = 'Floaty';
     shipGen.gen('desc', model);
+    shipGen.gen('name', model);
     shipGen.gen('class', model);
     shipGen.gen('prefix', model);
     shipGen.gen('commissioned', model);

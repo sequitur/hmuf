@@ -5,6 +5,46 @@ prefix:
       phrases: ['HMS']
     - tags: [['status', 'civilian']]
       phrases: ['SS']
+name:
+  bind: true
+  groups:
+    - tags: []
+      phrases:
+        - Floaty
+        - Spirit of [:locale]
+        - Old Carcosan
+    - tags: [['class', 'light']]
+      phrases:
+        - Dagger
+        - Rapier
+        - Assassin
+        - Brave
+        - Courageous
+        - Valiant
+        - Fearless
+        - Audacious
+        - Mettlesome
+        - Bold
+        - Defiant
+        - Intrepid
+    - tags: [['class', 'heavy']]
+      phrases:
+        - Robust
+        - Fortified
+        - Indefatigable
+        - Indestructible
+        - Powerful
+        - Inescapable
+        - Invincible
+        - Unassailable
+        - Unsinkable
+    - tags: [['class', 'freight']]
+      phrases:
+        - Hind
+        - Dromedary
+        - Camel
+        - Reliable
+        - Drudge
 class:
   bind: true
   groups:
@@ -16,7 +56,6 @@ class:
         - corvette
     - tags:
         - ['class', 'light']
-        - ['propulsion', 'sail']
         - ['status', 'warship']
         - ['era', 'old']
       phrases:
@@ -24,7 +63,6 @@ class:
     - tags:
         - ['class', 'heavy']
         - ['status', 'warship']
-        - ['propulsion', 'engine']
         - ['era', 'new']
       phrases:
         - cruiser
@@ -33,20 +71,17 @@ class:
     - tags:
         - ['class', 'heavy']
         - ['status', 'warship']
-        - ['propulsion', 'sail']
         - ['era', 'old']
       phrases:
         - man-o-war
     - tags:
         - ['class', 'freight']
-        - ['propulsion', 'engine']
         - ['era', 'new']
       phrases:
         - clipper
         - freighter
     - tags:
         - ['class', 'freight']
-        - ['propulsion', 'sail']
         - ['era', 'old']
       phrases:
         - galleon
@@ -72,7 +107,6 @@ fate:
       phrases:
         - 'sold to a maritime museum'
     - tags:
-        - ['era', 'new']
         - ['fate', 'service']
       phrases:
         - 'in service'
@@ -80,6 +114,10 @@ fate:
         - ['fate', 'lost']
       phrases:
         - 'lost with all hands'
+    - tags:
+        - ['fate', 'decommissioned']
+      phrases:
+        - 'decommissioned'
 locale:
   groups:
     - tags: []
@@ -96,13 +134,45 @@ madness:
         - taken by sea-madness
         - hearing the Pandyssian coastsong
         - having lost his mind
+enemy:
+  groups:
+    - tags: ['era', 'old']
+      phrases:
+        - "hated Chikal"
+        - "barbaric seafolk"
+    - tags: ['era', 'new']
+      phrases:
+        - "perfidious Rhean"
+        - "hated enemy"
+battle:
+  groups:
+    - tags: ['era', 'new']
+      phrases:
+        - "Battle of Fer Straits"
+        - "Battle of the Short Port"
+    - tags: ['era', 'old']
+      phrases:
+        - "Battle of the Long Port"
+        - "Taking of Seamount Crossing"
 finalstatement:
   groups:
+    - tags:
+        - ['fate', 'decommissioned']
+        - ['era', 'new']
+        - ['class', 'light']
+        - ['status', 'warship']
+      phrases:
+        - "After the demise of her captain due to an accident with her [:experimentaltech], she was retired from service."
     - tags:
         - ['fate', 'lost']
       phrases:
         - 'She was lost with all hands off the coast of [:locale].'
-        - 'Her captain, [:madness], sailed her towards the Edge of the World, never to be seen again'
+        - 'Her captain, [:madness], sailed her towards the Edge of the World, never to be seen again.'
+    - tags:
+        - ['fate', 'lost']
+        - ['status', 'warship']
+      phrases:
+        - 'The [:enemy] took her to the briny deep in the [:battle].'
     - tags:
         - ['fate', 'service']
         - ['status', 'warship']
@@ -112,14 +182,69 @@ finalstatement:
         - ['fate', 'service']
       phrases:
         - 'She is still regarded by many as a fine vessel.'
+descgraph:
+  groups:
+    - tags: []
+      phrases:
+        - '[:statement] [:statement]'
 statement:
   groups:
     - tags: []
       phrases:
         - 'Her previous captain, [:madness], was replaced by a junior officer.'
+        - 'She is regarded by most as a fine vessel.'
+goods:
+  groups:
+    - tags: []
+      phrases:
+        - sapphires
+        - mindworm silk
+        - blackstop
+        - coke
+        - carcosaware
+        - tobacco
+        - cotton
+experimentaltech:
+  bind: true
+  groups:
+    - tags: [['tech', 'impeller']]
+      phrases:
+        - "corkscrew impellers"
+    - tags: [['tech', 'field']]
+      phrases:
+        - "voltaic antipersonnel fields"
+    - tags: [['tech', 'device']]
+      phrases:
+        - "psychompomp carrier devices"
+    - tags: [['tech', 'engine']]
+      phrases:
+        - "the novel dawn engine"
+intrograph:
+  groups:
+    - tags: ['status', 'warship']
+      phrases:
+        - 'The [:class] [:prefix] [:name] was commissioned to serve the Navy [:yeardesc].'
+    - tags:
+        - ['status', 'civilian']
+        - ['era', 'new']
+        - ['class', 'freight']
+      phrases:
+        - "Freighters such as the [:name] are a common sight in the Capital's port these days."
+        - "The [:prefix] [:name] often arrives in port laden with [:goods] from [:locale]."
+    - tags:
+        - ['status', 'warship']
+        - ['era', 'new']
+        - ['class', 'light']
+      phrases:
+        - "The [:prefix] [:name] was originally built as a prototype to test [:experimentaltech]."
+yeardesc:
+  groups:
+    - tags: []
+      phrases:
+        - 'in the year [:commissioned]'
 desc:
   bind: true
   groups:
     - tags: []
       phrases:
-        - '<p>[:statement]</p><p>[:finalstatement]</p>'
+        - '<p>[:intrograph]</p><p>[:descgraph]</p><p>[:finalstatement]</p>'
