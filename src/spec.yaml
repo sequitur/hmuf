@@ -1,0 +1,125 @@
+prefix:
+  bind: true
+  groups:
+    - tags: [['status', 'warship']]
+      phrases: ['HMS']
+    - tags: [['status', 'civilian']]
+      phrases: ['SS']
+class:
+  bind: true
+  groups:
+    - tags:
+        - ['class', 'light']
+        - ['status', 'warship']
+      phrases:
+        - frigate
+        - corvette
+    - tags:
+        - ['class', 'light']
+        - ['propulsion', 'sail']
+        - ['status', 'warship']
+        - ['era', 'old']
+      phrases:
+        - sloop
+    - tags:
+        - ['class', 'heavy']
+        - ['status', 'warship']
+        - ['propulsion', 'engine']
+        - ['era', 'new']
+      phrases:
+        - cruiser
+        - battleship
+        - dreadnought
+    - tags:
+        - ['class', 'heavy']
+        - ['status', 'warship']
+        - ['propulsion', 'sail']
+        - ['era', 'old']
+      phrases:
+        - man-o-war
+    - tags:
+        - ['class', 'freight']
+        - ['propulsion', 'engine']
+        - ['era', 'new']
+      phrases:
+        - clipper
+        - freighter
+    - tags:
+        - ['class', 'freight']
+        - ['propulsion', 'sail']
+        - ['era', 'old']
+      phrases:
+        - galleon
+        - fluyt
+        - merchantman
+commissioned:
+  bind: true
+  groups:
+    - tags: ['era', 'old']
+      phrases:
+        - '8:[#20-27]'
+        - '9:[#1-8]'
+    - tags: ['era', 'new']
+      phrases:
+        - '9:[#3-12]'
+        - '10:[#1-5]'
+fate:
+  bind: true
+  groups:
+    - tags:
+        - ['era', 'old']
+        - ['fate', 'sold']
+      phrases:
+        - 'sold to a maritime museum'
+    - tags:
+        - ['era', 'new']
+        - ['fate', 'service']
+      phrases:
+        - 'in service'
+    - tags:
+        - ['fate', 'lost']
+      phrases:
+        - 'lost with all hands'
+locale:
+  groups:
+    - tags: []
+      phrases:
+        - New Carcosa
+        - Pandyssia
+        - Argyria
+        - Atlantis
+        - Phenacook
+madness:
+  groups:
+    - tags: []
+      phrases:
+        - taken by sea-madness
+        - hearing the Pandyssian coastsong
+        - having lost his mind
+finalstatement:
+  groups:
+    - tags:
+        - ['fate', 'lost']
+      phrases:
+        - 'She was lost with all hands off the coast of [:locale].'
+        - 'Her captain, [:madness], sailed her towards the Edge of the World, never to be seen again'
+    - tags:
+        - ['fate', 'service']
+        - ['status', 'warship']
+      phrases:
+        - 'She continues to proudly serve in the Navy.'
+    - tags:
+        - ['fate', 'service']
+      phrases:
+        - 'She is still regarded by many as a fine vessel.'
+statement:
+  groups:
+    - tags: []
+      phrases:
+        - 'Her previous captain, [:madness], was replaced by a junior officer.'
+desc:
+  bind: true
+  groups:
+    - tags: []
+      phrases:
+        - '<p>[:statement]</p><p>[:finalstatement]</p>'

@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Macondo|Milonga');
+
+body_color = #ebdac4
+
+body,html
+  font-size: 14px
+
+body
+  background: body_color
+  font-family: 'Macondo', cursive
+  margin: 0
+  padding: 0
+
+main
+  padding: 0
+
+h1
+  font-family: 'Milonga', serif
+  background: linear-gradient(to bottom, #d00000, #da0000)
+  color: alpha(black, 0.7)
+  text-align: center
+  font-size: 4rem
+  margin: 0
+  line-height: 8rem
+  box-shadow: inset 0 0 10px 0 white, 2px 2px 20px alpha(black, 0.4)
+  text-shadow: 2px 2px 2px alpha(white, 0.6), -2px -2px 3px alpha(black, 0.2)
+
+.description
+  float: right
+  width: 74%
+  margin: 0
+  padding: 0
+  h2
+    font-size: 2rem
+    border-bottom: 1px solid black
+    margin-top: 0
+    &::before
+      content: "the good ship"
+      font-size: 1rem
+      color: alpha(black, 0.5)
+      margin-right: .5rem
+
+.ship
+  max-width: 56rem
+  margin: 2rem auto
+
+.factsheet
+  float: left
+  width: 20%
+  background: alpha(black, 0.2)
+  padding: 1rem
+  margin:0
+  border-radius: 2px 30px
+  box-shadow: 2px 2px 5px alpha(black, 10%)
+
+.controls
+  clear: both
+  padding: 1rem
+  width: 100%
+  margin: 15rem 0
+  padding: 0
+  button
+    font-size: 1.5rem
+    font-family: 'Macondo', cursive
+    display: block
+    margin: auto
+    border: none
+    background: alpha(white, 0.5)
+    border-radius: 2px
+    padding: .5rem 2rem
+    outline: none
+    &:active
+      border: 1px solid alpha(black, 0.2)
+      box-shadow: inset 0 0 2px alpha(black, 0.2)
