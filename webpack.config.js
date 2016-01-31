@@ -23,7 +23,7 @@ module.exports = {
       },
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file' },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml' },
-      { test: /\.styl$/, loader: 'style-loader!css-loader!stylus-loader' },
+      { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' },
     ],
   },
   devtool: '#source-map',

@@ -219,6 +219,14 @@ experimentaltech:
     - tags: [['tech', 'engine']]
       phrases:
         - "the novel dawn engine"
+direction:
+  groups:
+    - tags: []
+      phrases:
+        - north
+        - west
+        - south
+        - east
 intrograph:
   groups:
     - tags: ['status', 'warship']
@@ -237,6 +245,10 @@ intrograph:
         - ['class', 'light']
       phrases:
         - "The [:prefix] [:name] was originally built as a prototype to test [:experimentaltech]."
+    - tags:
+        - ['status', 'civilian']
+      phrases:
+        - 'The [:class] [:prefix] [:name] launched to ply the [:direction]ern trade routes [:yeardesc].'
 yeardesc:
   groups:
     - tags: []
